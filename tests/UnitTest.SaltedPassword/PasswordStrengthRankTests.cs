@@ -1,4 +1,6 @@
-﻿namespace Doulex.SaltedPassword.Tests;
+﻿using PasswordUtility;
+
+namespace UnitTest.PasswordUtility;
 
 /// <summary>
 /// Password strength rank tests

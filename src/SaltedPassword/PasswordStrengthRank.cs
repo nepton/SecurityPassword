@@ -1,11 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Doulex.SaltedPassword;
+namespace PasswordUtility;
 
 public class PasswordStrengthRank : IPasswordStrengthRank
 {
     /// <summary>
-    /// 计算密码强度, 总分5分
+    /// Calculate the strength of the password. The total score is 5
     /// </summary>
     /// <param name="strInputPassword"></param>
     /// <returns></returns>

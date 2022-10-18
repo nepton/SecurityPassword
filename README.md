@@ -5,7 +5,7 @@ content each time
 # How to use
 Add nuget reference
 ```
-Doulex.SaltedPassword
+PM> Install-Package SaltedPassword
 ```
 
 # Example

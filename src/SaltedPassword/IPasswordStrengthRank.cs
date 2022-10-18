@@ -1,4 +1,4 @@
-﻿namespace Doulex.SaltedPassword
+﻿namespace PasswordUtility
 {
     /// <summary>
     /// password strength score

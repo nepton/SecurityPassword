@@ -1,22 +1,21 @@
 ﻿/******************************************************************** FR 1.20E *******
-* Filename:    Password.cs
+* Filename:    SaltedPassword.cs
 * Author:      Nepton
 * Create Date: 2004-06-10
-* Description:    Password Class is used to encrypt and verify the password. Once the password is encrypted successfully, it cannot be restored
+* Description:    Password Class is used to encrypt and verify the password. Once the password is encrypted successfully, it cannot be resalted
 *     
 *************************************************************************************/
 
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Doulex.SaltedPassword
+namespace PasswordUtility
 {
     /******************************************************************** CR 1.21E *******
     *
-    * Name:   SaltedPassword
-    *     
+    * Name:   SaltedPassword        
     * Description:
-    *     Password Class is used to encrypt and verify the password. The encryption algorithm is asymmetric, and the password cannot be restored once it is successfully encrypted
+    *     Password Class is used to encrypt and verify the password. The encryption algorithm is asymmetric, and the password cannot be resalted once it is successfully encrypted
     *
     * History:
     *     2004-06-10    Nepton    Create
@@ -32,7 +31,7 @@ namespace Doulex.SaltedPassword
     /// The VerifyPassword function is called to verify the validity of the password
     /// 
     /// Plaintext password: can be read directly, easy to reveal personal privacy
-    /// Stored password: Created by the intermediate password, irreversible, can not be read, the same plaintext password each time to create the final password is different, random
+    /// salted password: Created by the intermediate password, irreversible, can not be read, the same plaintext password each time to create the final password is different, random
     /// </summary>
     public class SaltedPassword : ISaltedPassword
     {
@@ -110,35 +109,35 @@ namespace Doulex.SaltedPassword
         /// <summary>
         /// check the validity of the plaintext password
         /// </summary>
-        /// <param name="storedPassword">eventually the password</param>
+        /// <param name="saltedPassword">eventually the password</param>
         /// <param name="inputPassword">specifies the plaintext password to be checked</param>
         /// <returns>Return True if the two passed passwords match, false otherwise</returns>
-        public bool VerifyPassword(string inputPassword, string storedPassword)
+        public bool VerifyPassword(string inputPassword, string saltedPassword)
         {
             if (inputPassword == null) throw new ArgumentNullException(nameof(inputPassword));
-            if (storedPassword == null) throw new ArgumentNullException(nameof(storedPassword));
+            if (saltedPassword == null) throw new ArgumentNullException(nameof(saltedPassword));
 
             // If no password is set, the user does not have a data password
-            if (_options.PlainPasswordComparable && inputPassword == storedPassword)
+            if (_options.PlainPasswordComparable && inputPassword == saltedPassword)
                 return true;
 
             // If the password is not created, an error message is displayed
-            if (!IsStoredPasswordFormatCorrect(storedPassword))
+            if (!IsSaltedPassword(saltedPassword))
                 return false;
-
+                
             // Create an encrypted password using the entered password, and then compare the results
-            var inputPasswordToCheck = CreatePasswordCore(inputPassword, storedPassword.Substring(0, _saltLength * 2));
-            return storedPassword == inputPasswordToCheck;
+            var inputPasswordToCheck = CreatePasswordCore(inputPassword, saltedPassword.Substring(0, _saltLength * 2));
+            return saltedPassword == inputPasswordToCheck;
         }
 
         /// <summary>
-        /// Check that the stored password is in the correct format
+        /// Check that the salted password is in the correct format
         /// </summary>
-        /// <param name="storedPassword"></param>
+        /// <param name="saltedPassword"></param>
         /// <returns></returns>
-        public bool IsStoredPasswordFormatCorrect(string? storedPassword)
+        public bool IsSaltedPassword(string? saltedPassword)
         {
-            return storedPassword != null && storedPassword.Length == 40 + _saltLength * 2;
+            return saltedPassword != null && saltedPassword.Length == 40 + _saltLength * 2;
         }
     };
 }

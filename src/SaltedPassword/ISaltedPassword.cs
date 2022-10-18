@@ -1,4 +1,4 @@
-﻿namespace Doulex.SaltedPassword
+﻿namespace PasswordUtility
 {
     /// <summary>
     /// salted password service
@@ -6,7 +6,7 @@
     public interface ISaltedPassword
     {
         /// <summary>
-        /// Creates a final password based on the plaintext entered by the user
+        /// Creates a salted password based on the plaintext entered by the user
         /// </summary>
         /// <param name="inputPassword">Prepare the plaintext password to create the final password</param>
         /// <returns>the program returns the final password</returns>
@@ -16,15 +16,15 @@
         /// check the validity of the plaintext password
         /// </summary>
         /// <param name="inputPassword">specifies the plaintext password to be checked</param>
-        /// <param name="storedPassword">stored password</param>
+        /// <param name="saltedPassword">salted password</param>
         /// <returns>Return True if the two passed passwords match, false otherwise</returns>
-        bool VerifyPassword(string inputPassword, string storedPassword);
+        bool VerifyPassword(string inputPassword, string saltedPassword);
 
         /// <summary>
         /// Check that the stored password is in the correct format
         /// </summary>
-        /// <param name="storedPassword"></param>
+        /// <param name="saltedPassword"></param>
         /// <returns></returns>
-        bool IsStoredPasswordFormatCorrect(string? storedPassword);
+        bool IsSaltedPassword(string? saltedPassword);
     }
 }

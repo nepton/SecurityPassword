@@ -1,4 +1,6 @@
-namespace Doulex.SaltedPassword.Tests;
+using PasswordUtility;
+
+namespace UnitTest.PasswordUtility;
 
 public class SaltedPasswordTests
 {
@@ -19,10 +21,10 @@ public class SaltedPasswordTests
         var password       = "ThisIsThePassword";
         var saltedPassword = new SaltedPassword();
         var encrypted1     = saltedPassword.CreatePassword(password);
-        Assert.True(saltedPassword.IsStoredPasswordFormatCorrect(encrypted1));
+        Assert.True(saltedPassword.IsSaltedPassword(encrypted1));
         
         // assert when password is null
-        Assert.False(saltedPassword.IsStoredPasswordFormatCorrect(null!));
+        Assert.False(saltedPassword.IsSaltedPassword(null!));
     }
     
     [Fact]
