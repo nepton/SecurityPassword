@@ -11,14 +11,14 @@ graph LR
     Salt--> 32787a9c9...                              
 ```
 
-# How to use
+## How to use
 Add nuget reference
 ```
 PM> Install-Package Doulex.SaltedPassword
 ```
 
-# Example
-```
+add these code to your project
+
 ```C#
 // Encrypt the password
 var saltedPassword = new SaltedPassword();
