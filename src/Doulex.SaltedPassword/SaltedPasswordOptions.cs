@@ -1,4 +1,4 @@
-﻿namespace PasswordUtility
+﻿namespace Doulex.PasswordUtility
 {
     /// <summary>
     /// password encryption options

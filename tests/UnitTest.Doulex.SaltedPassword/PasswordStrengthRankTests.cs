@@ -1,6 +1,6 @@
-﻿using PasswordUtility;
+﻿using Doulex.PasswordUtility;
 
-namespace UnitTest.PasswordUtility;
+namespace UnitTest.Doulex.PasswordUtility;
 
 /// <summary>
 /// Password strength rank tests

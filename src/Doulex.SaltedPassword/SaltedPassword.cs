@@ -1,21 +1,21 @@
 ﻿/******************************************************************** FR 1.20E *******
-* Filename:    SaltedPassword.cs
+* Filename:    Doulex.SaltedPassword.cs
 * Author:      Nepton
 * Create Date: 2004-06-10
-* Description:    Password Class is used to encrypt and verify the password. Once the password is encrypted successfully, it cannot be resalted
+* Description:    Password Class is used to encrypt and verify the password. Once the password is encrypted successfully, it cannot be regenerated.
 *     
 *************************************************************************************/
 
 using System.Security.Cryptography;
 using System.Text;
 
-namespace PasswordUtility
+namespace Doulex.PasswordUtility
 {
     /******************************************************************** CR 1.21E *******
     *
-    * Name:   SaltedPassword        
+    * Name:   Doulex.SaltedPassword        
     * Description:
-    *     Password Class is used to encrypt and verify the password. The encryption algorithm is asymmetric, and the password cannot be resalted once it is successfully encrypted
+    *     Password Class is used to encrypt and verify the password. The encryption algorithm is asymmetric, and the password cannot be regenerated once it is successfully encrypted
     *
     * History:
     *     2004-06-10    Nepton    Create
@@ -99,10 +99,10 @@ namespace PasswordUtility
         {
             // 中间密码
             using var sha                = SHA1.Create();
-            var       transitionPassword = BytesToString(sha.ComputeHash(Encoding.Default.GetBytes(inputPassword)));
+            var       transitionPassword = BytesToString(sha.ComputeHash(Encoding.UTF8.GetBytes(inputPassword)));
 
             // 最终密码
-            var bPassword = sha.ComputeHash(Encoding.Default.GetBytes(strSalt + transitionPassword));
+            var bPassword = sha.ComputeHash(Encoding.UTF8.GetBytes(strSalt + transitionPassword));
             return strSalt + BytesToString(bPassword);
         }
 
@@ -124,7 +124,7 @@ namespace PasswordUtility
             // If the password is not created, an error message is displayed
             if (!IsSaltedPassword(saltedPassword))
                 return false;
-                
+
             // Create an encrypted password using the entered password, and then compare the results
             var inputPasswordToCheck = CreatePasswordCore(inputPassword, saltedPassword.Substring(0, _saltLength * 2));
             return saltedPassword == inputPasswordToCheck;

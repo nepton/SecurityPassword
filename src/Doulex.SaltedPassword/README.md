@@ -10,10 +10,10 @@ graph LR
 ```
 
 ## Installing
-First, add the SaltedPassword library to your project:
+First, add the Doulex.SaltedPassword library to your project:
 
 ```
-PM> Install-Package SaltedPassword
+PM> Install-Package Doulex.SaltedPassword
 ```
 
 ## Usage
