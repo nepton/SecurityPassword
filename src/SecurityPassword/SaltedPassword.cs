@@ -1,5 +1,5 @@
 ﻿/******************************************************************** FR 1.20E *******
-* Filename:    Doulex.SaltedPassword.cs
+* Filename:    SecurityPassword.cs
 * Author:      Nepton
 * Create Date: 2004-06-10
 * Description:    Password Class is used to encrypt and verify the password. Once the password is encrypted successfully, it cannot be regenerated.
@@ -9,11 +9,11 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Doulex.PasswordUtility
+namespace SecurityPassword
 {
     /******************************************************************** CR 1.21E *******
     *
-    * Name:   Doulex.SaltedPassword        
+    * Name:   SecurityPassword        
     * Description:
     *     Password Class is used to encrypt and verify the password. The encryption algorithm is asymmetric, and the password cannot be regenerated once it is successfully encrypted
     *

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Doulex.PasswordUtility;
+namespace SecurityPassword;
 
 public class PasswordStrengthRank : IPasswordStrengthRank
 {

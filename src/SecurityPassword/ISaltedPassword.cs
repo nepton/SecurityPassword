@@ -1,4 +1,4 @@
-﻿namespace Doulex.PasswordUtility
+﻿namespace SecurityPassword
 {
     /// <summary>
     /// salted password service

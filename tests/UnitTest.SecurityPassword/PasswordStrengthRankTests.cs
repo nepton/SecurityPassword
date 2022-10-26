@@ -1,4 +1,4 @@
-﻿using Doulex.PasswordUtility;
+﻿using SecurityPassword;
 
 namespace UnitTest.Doulex.PasswordUtility;
 
