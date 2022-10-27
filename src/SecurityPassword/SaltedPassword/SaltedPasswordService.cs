@@ -9,7 +9,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SecurityPassword
+namespace SecurityPassword.SaltedPassword
 {
     /******************************************************************** CR 1.21E *******
     *
@@ -33,7 +33,7 @@ namespace SecurityPassword
     /// Plaintext password: can be read directly, easy to reveal personal privacy
     /// salted password: Created by the intermediate password, irreversible, can not be read, the same plaintext password each time to create the final password is different, random
     /// </summary>
-    public class SaltedPassword : ISaltedPassword
+    public class SaltedPasswordService : ISaltedPasswordService
     {
         private readonly SaltedPasswordOptions _options;
 
@@ -42,7 +42,7 @@ namespace SecurityPassword
         /// </summary>
         private readonly int _saltLength = 4;
 
-        public SaltedPassword()
+        public SaltedPasswordService()
         {
             _options = new()
             {
@@ -50,7 +50,7 @@ namespace SecurityPassword
             };
         }
 
-        public SaltedPassword(SaltedPasswordOptions options)
+        public SaltedPasswordService(SaltedPasswordOptions options)
         {
             _options = options;
         }
@@ -117,7 +117,7 @@ namespace SecurityPassword
             if (inputPassword == null) throw new ArgumentNullException(nameof(inputPassword));
             if (saltedPassword == null) throw new ArgumentNullException(nameof(saltedPassword));
 
-            // If no password is set, the user does not have a data password
+            // Allow plaintext passwords to be compared
             if (_options.PlainPasswordComparable && inputPassword == saltedPassword)
                 return true;
 

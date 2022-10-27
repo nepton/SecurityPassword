@@ -25,16 +25,16 @@ graph LR
 ## How to use
 Add nuget reference
 ```
-PM> Install-Package Doulex.SaltedPassword
+PM> Install-Package SecurityPassword
 ```
 
 add these code to your project
 
 ```C#
 // Encrypt the password
-var saltedPassword = new SaltedPassword();
-var encryption     = saltedPassword.CreatePassword("ThisIsThePassword");
+var saltedPasswordService = new SaltedPasswordService();
+var encryption     = saltedPasswordService.CreatePassword("ThisIsThePassword");
 
 // Verify the password
-var result = saltedPassword.VerifyPassword("ThisIsThePassword", encryption);
+var result = saltedPasswordService.VerifyPassword("ThisIsThePassword", encryption);
 ```

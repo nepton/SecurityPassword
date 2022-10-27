@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace SecurityPassword;
+namespace SecurityPassword.PasswordStrength;
 
-public class PasswordStrengthRank : IPasswordStrengthRank
+public class PasswordStrengthMeter : IPasswordStrengthMeter
 {
     /// <summary>
     /// Calculate the strength of the password. The total score is 5

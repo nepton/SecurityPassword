@@ -1,9 +1,9 @@
-﻿namespace SecurityPassword
+﻿namespace SecurityPassword.PasswordStrength
 {
     /// <summary>
     /// password strength score
     /// </summary>
-    public interface IPasswordStrengthRank
+    public interface IPasswordStrengthMeter
     {
         /// <summary>
         /// Calculate the strength of the password. The total score is 5

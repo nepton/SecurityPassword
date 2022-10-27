@@ -1,9 +1,9 @@
-﻿namespace SecurityPassword
+﻿namespace SecurityPassword.SaltedPassword
 {
     /// <summary>
     /// salted password service
     /// </summary>
-    public interface ISaltedPassword
+    public interface ISaltedPasswordService
     {
         /// <summary>
         /// Creates a salted password based on the plaintext entered by the user

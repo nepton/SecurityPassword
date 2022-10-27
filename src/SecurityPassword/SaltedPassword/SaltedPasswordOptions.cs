@@ -1,4 +1,4 @@
-﻿namespace SecurityPassword
+﻿namespace SecurityPassword.SaltedPassword
 {
     /// <summary>
     /// password encryption options

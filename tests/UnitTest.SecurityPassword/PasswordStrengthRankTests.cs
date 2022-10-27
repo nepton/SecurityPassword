@@ -1,4 +1,5 @@
 ﻿using SecurityPassword;
+using SecurityPassword.PasswordStrength;
 
 namespace UnitTest.Doulex.PasswordUtility;
 
@@ -23,7 +24,7 @@ public class PasswordStrengthRankTests
             ["123!@#abcABC"] = 5,
         };
 
-        var rank = new PasswordStrengthRank();
+        var rank = new PasswordStrengthMeter();
         foreach (var test in tests)
         {
             Assert.Equal(test.Value, rank.ComputePasswordStrength(test.Key));
@@ -33,7 +34,7 @@ public class PasswordStrengthRankTests
     [Fact]
     public void TestNullPassword()
     {
-        var rank = new PasswordStrengthRank();
+        var rank = new PasswordStrengthMeter();
         Assert.Throws<ArgumentNullException>(() => rank.ComputePasswordStrength(null!));
     }
 }

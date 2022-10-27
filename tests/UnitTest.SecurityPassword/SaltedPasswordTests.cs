@@ -1,4 +1,5 @@
 using SecurityPassword;
+using SecurityPassword.SaltedPassword;
 
 namespace UnitTest.Doulex.PasswordUtility;
 
@@ -8,7 +9,7 @@ public class SaltedPasswordTests
     public void TestSamePasswordWillGotDifferentResult()
     {
         var password       = "ThisIsThePassword";
-        var saltedPassword = new SaltedPassword();
+        var saltedPassword = new SaltedPasswordService();
         var encrypted1     = saltedPassword.CreatePassword(password);
         var encrypted2     = saltedPassword.CreatePassword(password);
         Assert.NotNull(encrypted1);
@@ -19,7 +20,7 @@ public class SaltedPasswordTests
     public void TestIsStoredPasswordFormatCorrected()
     {
         var password       = "ThisIsThePassword";
-        var saltedPassword = new SaltedPassword();
+        var saltedPassword = new SaltedPasswordService();
         var encrypted1     = saltedPassword.CreatePassword(password);
         Assert.True(saltedPassword.IsSaltedPassword(encrypted1));
         
@@ -31,7 +32,7 @@ public class SaltedPasswordTests
     public void TestPasswordCanBeVerified()
     {
         var password       = "ThisIsThePassword";
-        var saltedPassword = new SaltedPassword();
+        var saltedPassword = new SaltedPasswordService();
         var encrypted1     = saltedPassword.CreatePassword(password);
         Assert.True(saltedPassword.VerifyPassword(password, encrypted1));
     }
@@ -40,7 +41,7 @@ public class SaltedPasswordTests
     public void TestEmptyPasswordCanBeVerified()
     {
         var password       = "";
-        var saltedPassword = new SaltedPassword();
+        var saltedPassword = new SaltedPasswordService();
         var encrypted1     = saltedPassword.CreatePassword(password);
         Assert.NotEmpty(encrypted1);
         Assert.True(saltedPassword.VerifyPassword(password, encrypted1));
@@ -50,7 +51,7 @@ public class SaltedPasswordTests
     public void TestPlainTextPasswordCanBeVerified()
     {
         var password = "ThisIsThePassword";
-        var saltedPassword = new SaltedPassword(new SaltedPasswordOptions
+        var saltedPassword = new SaltedPasswordService(new SaltedPasswordOptions
         {
             PlainPasswordComparable = true
         });
@@ -62,7 +63,7 @@ public class SaltedPasswordTests
     public void TestPlainTextPasswordCannotBeVerified()
     {
         var password = "ThisIsThePassword";
-        var saltedPassword = new SaltedPassword(new SaltedPasswordOptions
+        var saltedPassword = new SaltedPasswordService(new SaltedPasswordOptions
         {
             PlainPasswordComparable = false
         });
@@ -73,7 +74,7 @@ public class SaltedPasswordTests
     [Fact]
     public void TestNullPassword()
     {
-        var saltedPassword = new SaltedPassword();
+        var saltedPassword = new SaltedPasswordService();
         Assert.Throws<ArgumentNullException>(() => saltedPassword.CreatePassword(null!));
         Assert.Throws<ArgumentNullException>(() => saltedPassword.VerifyPassword(null!, ""));
         Assert.Throws<ArgumentNullException>(() => saltedPassword.VerifyPassword("", null!));
