@@ -1,7 +1,8 @@
 ﻿# SecurityPassword
 [![Build status](https://ci.appveyor.com/api/projects/status/qsc7d2uwxopdx2d8?svg=true)](https://ci.appveyor.com/project/nepton/securitypassword)
-![GitHub issues](https://img.shields.io/github/issues/nepton/SecurityPassword.svg)
+[![CodeQL](https://github.com/nepton/SecurityPassword/actions/workflows/codeql.yml/badge.svg)](https://github.com/nepton/SecurityPassword/actions/workflows/codeql.yml)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nepton/SecurityPassword/blob/master/LICENSE)
+![GitHub issues](https://img.shields.io/github/issues/nepton/SecurityPassword.svg)
 
 The salted password is used to encrypt the user password. In order to prevent the encrypted password from being guessed,
 the Salt processing is added after the encrypted password, so that the same password will generate a different encrypted
