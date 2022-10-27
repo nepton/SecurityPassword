@@ -4,7 +4,7 @@ environment:
   VERSION: 1.1.0
   TARGET_CONFIGURATION: Release
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 platform: Any CPU
 
