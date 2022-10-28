@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SecurityPassword.OneTimePassword;
 using SecurityPassword.SaltedPassword;
 
-namespace Thingsboard.Net.Flurl.DependencyInjection;
+namespace SecurityPassword.DependencyInjection;
 
 public static class SaltedPasswordServicesExtensions
 {
@@ -31,9 +31,9 @@ public static class SaltedPasswordServicesExtensions
     /// Adds the salted password services.
     /// </summary>
     /// <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> for adding services.</param>
-    /// <param name="configureOptions">A delegate to configure the <see cref="T:TotpOptions" />.</param>
+    /// <param name="configureOptions"></param>
     /// <returns></returns>
-    public static IServiceCollection AddThingsboardNet(this IServiceCollection services, Action<TotpOptions> configureOptions)
+    public static IServiceCollection AddSaltedPassword(this IServiceCollection services, Action<SaltedPasswordOptions> configureOptions)
     {
         if (services == null)
             throw new ArgumentNullException(nameof(services));

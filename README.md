@@ -10,9 +10,10 @@ content each time
 
 ## Nuget packages
 
-| Name                   | Version                                                                                                                       | Downloads                                                                                                                      |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| SecurityPassword | [![nuget](https://img.shields.io/nuget/v/SecurityPassword.svg)](https://www.nuget.org/packages/SecurityPassword/) | [![stats](https://img.shields.io/nuget/dt/SecurityPassword.svg)](https://www.nuget.org/packages/SecurityPassword/) |
+| Name                                 | Version                                                                                                                                                   | Downloads                                                                                                                                                  |
+|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SecurityPassword                     | [![nuget](https://img.shields.io/nuget/v/SecurityPassword.svg)](https://www.nuget.org/packages/SecurityPassword/)                                         | [![stats](https://img.shields.io/nuget/dt/SecurityPassword.svg)](https://www.nuget.org/packages/SecurityPassword/)                                         |
+| SecurityPassword.DependencyInjection | [![nuget](https://img.shields.io/nuget/v/SecurityPassword.DependencyInjection.svg)](https://www.nuget.org/packages/SecurityPassword.DependencyInjection/) | [![stats](https://img.shields.io/nuget/dt/SecurityPassword.DependencyInjection.svg)](https://www.nuget.org/packages/SecurityPassword.DependencyInjection/) |
 
 ## How does it work
 The plain text password is hashed by SHA-256. Then we add a salt to the password and hash it again. This salt will be at the front of the hash.

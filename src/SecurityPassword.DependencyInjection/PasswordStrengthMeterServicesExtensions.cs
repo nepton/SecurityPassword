@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using SecurityPassword.PasswordStrength;
 
-namespace Thingsboard.Net.Flurl.DependencyInjection;
+namespace SecurityPassword.DependencyInjection;
 
 public static class PasswordStrengthMeterServicesExtensions
 {
