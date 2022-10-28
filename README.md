@@ -40,3 +40,11 @@ var encryption     = saltedPasswordService.CreatePassword("ThisIsThePassword");
 // Verify the password
 var result = saltedPasswordService.VerifyPassword("ThisIsThePassword", encryption);
 ```
+
+## Final
+Leave a comment on GitHub if you have any questions or suggestions.
+
+Turn on the star if you like this project.
+
+## License
+This project is licensed under the MIT License
